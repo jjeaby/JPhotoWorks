@@ -11,7 +11,7 @@ install_requires = [
 
 setup(
     name='JPhotoWorks',
-    version='0.07',
+    version='0.08',
     py_modules = ['JPhoto','JUtil'],
     packages=find_packages(exclude=['tests']),
     install_requires=install_requires,
