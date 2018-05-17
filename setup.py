@@ -6,12 +6,12 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 
 install_requires = [
-    "pillow",
+    "pillow", "piexif",
 ]
 
 setup(
     name='JPhotoWorks',
-    version='0.04',
+    version='0.07',
     py_modules = ['JPhoto','JUtil'],
     packages=find_packages(exclude=['tests']),
     install_requires=install_requires,

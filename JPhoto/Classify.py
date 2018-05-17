@@ -12,12 +12,15 @@ if __name__ == '__main__':
         description="사진을 날짜별로 폴더로 정리하기")
     parser.add_argument('--input', type=str, required=True, default='', help='정리할 사진 폴더')
     parser.add_argument('--output', type=str, required=True, default='', help='이동될 사진 폴더')
+    parser.add_argument('--thumnailsize', type=int, required=False, default='1024', help='이동될 사진 폴더')
+
     args = parser.parse_args()
 
     photo = Photo()
     util = Util()
 
     file_list = photo.getImageFileList(str(args.input))
+    thumnail_size = args.thumnailsize
     # print(file_list)
     if len(file_list) == 0:
         print("정리할 사진이 없습니다")
@@ -48,7 +51,7 @@ if __name__ == '__main__':
                 util.getAbsPath(str(args.output)) + os.path.sep + create_date + os.path.sep + file.split(os.path.sep)[
                     -1], util.getAbsPath(str(
                     args.output)) + os.path.sep + create_date + os.path.sep + 'thumbnail' + os.path.sep + 'resize_' +
-                file.split(os.path.sep)[-1])
+                file.split(os.path.sep)[-1], basewidth=thumnail_size)
 
             print(idx + 1, "번", file + "->" + util.getAbsPath(str(args.output)) + os.path.sep + create_date)
         print("정리 완료!")
