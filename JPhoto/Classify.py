@@ -40,7 +40,7 @@ if __name__ == '__main__':
                     create_date = datetime.datetime.fromtimestamp(os.stat(file).st_mtime)
             except:
                 create_date = datetime.datetime.fromtimestamp(os.stat(file).st_mtime)
-            create_date = str(create_date).replace(":", "-").split(" ")[0]
+            create_date = str(create_date).replace(":", "").split(" ")[0]
 
             util.makeDir(util.getAbsPath(str(args.output)) + os.path.sep + create_date)
             util.makeDir(util.getAbsPath(str(args.output)) + os.path.sep + create_date + os.path.sep + 'thumbnail')
